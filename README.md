@@ -3,7 +3,7 @@
 Official Node.js SDK for [DocAPI](https://www.docapi.co) — generate PDFs and screenshots from HTML.
 
 ```bash
-npm install docapi
+npm install @docapi/sdk
 ```
 
 Zero dependencies. Uses native `fetch` (Node.js 18+).
@@ -11,7 +11,7 @@ Zero dependencies. Uses native `fetch` (Node.js 18+).
 ## Quick start
 
 ```typescript
-import { DocAPI } from "docapi";
+import { DocAPI } from "@docapi/sdk";
 
 const client = new DocAPI("pk_live_...");
 
@@ -152,7 +152,7 @@ console.log(account.free_calls);    // 10
 All errors throw `DocAPIError` with `status` and `code` properties.
 
 ```typescript
-import { DocAPI, DocAPIError } from "docapi";
+import { DocAPI, DocAPIError } from "@docapi/sdk";
 
 try {
   const pdf = await client.pdf("<h1>Hello</h1>");
@@ -178,7 +178,7 @@ try {
 
 ```typescript
 // app/api/og/route.ts
-import { DocAPI } from "docapi";
+import { DocAPI } from "@docapi/sdk";
 import { NextRequest } from "next/server";
 
 const client = new DocAPI(process.env.DOCAPI_KEY!);

@@ -1,5 +1,5 @@
 {
-  "name": "docapi",
+  "name": "@docapi/sdk",
   "version": "0.1.0",
   "description": "Official Node.js SDK for DocAPI — generate PDFs and screenshots from HTML",
   "type": "module",
