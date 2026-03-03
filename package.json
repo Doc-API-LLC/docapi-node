@@ -1,0 +1,53 @@
+{
+  "name": "docapi",
+  "version": "0.1.0",
+  "description": "Official Node.js SDK for DocAPI — generate PDFs and screenshots from HTML",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "pdf",
+    "screenshot",
+    "html-to-pdf",
+    "og-image",
+    "docapi",
+    "document",
+    "api",
+    "sdk"
+  ],
+  "author": "Doc-API-LLC",
+  "license": "MIT",
+  "homepage": "https://www.docapi.co",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Doc-API-LLC/docapi-node"
+  },
+  "bugs": {
+    "url": "https://github.com/Doc-API-LLC/docapi-node/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.2"
+  }
+}
