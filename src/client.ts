@@ -4,10 +4,12 @@ import type {
   RegisterOptions,
   RegisterResponse,
   CreditsResponse,
+  InvoiceOptions,
 } from "./types.js";
 
 const PDF_URL = "https://api.docapi.co/v1/pdf";
 const SCREENSHOT_URL = "https://api.docapi.co/v1/screenshot";
+const INVOICE_URL = "https://api.docapi.co/v1/invoice";
 const REGISTER_URL = "https://www.docapi.co/api/register";
 const TOPUP_URL = "https://www.docapi.co/api/topup";
 
@@ -80,6 +82,25 @@ export class DocAPI {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
+    });
+
+    this.#updateCredits(res);
+    if (!res.ok) await this.#throwError(res);
+    return Buffer.from(await res.arrayBuffer());
+  }
+
+  /**
+   * Generate a PDF invoice.
+   * @returns Buffer containing the PDF bytes.
+   */
+  async invoice(data: InvoiceOptions): Promise<Buffer> {
+    const res = await fetch(INVOICE_URL, {
+      method: "POST",
+      headers: {
+        "x-api-key": this.#apiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     });
 
     this.#updateCredits(res);

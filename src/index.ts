@@ -5,4 +5,5 @@ export type {
   RegisterOptions,
   RegisterResponse,
   CreditsResponse,
+  InvoiceOptions,
 } from "./types.js";

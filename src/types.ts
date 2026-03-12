@@ -67,3 +67,31 @@ export interface CreditsResponse {
   rate: string;
   suggested_topup_usdc: number;
 }
+
+export interface InvoiceOptions {
+  from: {
+    name: string;
+    email?: string;
+    address?: string;
+    phone?: string;
+  };
+  to: {
+    name: string;
+    email?: string;
+    address?: string;
+  };
+  line_items: Array<{
+    description: string;
+    quantity: number;
+    unit_price: number;
+  }>;
+  invoice_number?: string;
+  date?: string;
+  due_date?: string;
+  /** Default: "$" */
+  currency_symbol?: string;
+  /** 0–100 */
+  tax_percent?: number;
+  notes?: string;
+  logo_url?: string;
+}
